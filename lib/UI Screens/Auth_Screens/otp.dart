@@ -8,6 +8,8 @@ import 'package:gap/gap.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'national_id.dart';
+
 class Otp extends StatefulWidget {
   const Otp({super.key});
 
@@ -213,7 +215,8 @@ Future<void> _showMyDialog(BuildContext context) async {
           type: MaterialType.transparency,
           child: AlertDialog(
             elevation: 10.0,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             content: Container(
               height: 125,
               width: 120,
@@ -263,7 +266,13 @@ Future<void> _showMyDialog(BuildContext context) async {
                     TextSpan(
                       text: ' National ID',
                       recognizer: TapGestureRecognizer()
-                        ..onTap = () => print('Change to National ID page'),
+                        ..onTap = () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const NationalId(),
+                              ));
+                        },
                       style: GoogleFonts.poppins(
                         textStyle: const TextStyle(
                             color: Color.fromRGBO(30, 73, 57, 1),

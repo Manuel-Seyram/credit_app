@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../Auth_Screens/national_id.dart';
+
 class Security extends StatefulWidget {
   const Security({super.key});
 
@@ -164,6 +166,45 @@ class _SecurityState extends State<Security> {
                 },
               )
             ]),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          Container(
+            height: 60.0,
+            width: 350.0,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NationalId(),
+                    ));
+              },
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('National ID',
+                          style: GoogleFonts.poppins(
+                            textStyle: const TextStyle(
+                                color: Colors.black87,
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w400),
+                          )),
+                      const Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.black12,
+                        size: 20.0,
+                      )
+                    ]),
+              ),
+            ),
           ),
         ],
       )),
