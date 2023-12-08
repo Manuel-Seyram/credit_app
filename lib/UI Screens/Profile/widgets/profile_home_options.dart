@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../Payment modes/payment_mode.dart';
+import '../Accounts/accounts.dart';
 
 class ProfileHomeOptions extends StatelessWidget {
   const ProfileHomeOptions({super.key});
@@ -31,7 +31,7 @@ class ProfileHomeOptions extends StatelessWidget {
               const SizedBox(
                 width: 20.0,
               ),
-              Text('Account Info',
+              Text('Profile Info',
                   style: GoogleFonts.poppins(
                     textStyle: const TextStyle(
                         color:  Color.fromRGBO(30, 73, 57, 1),
@@ -39,7 +39,7 @@ class ProfileHomeOptions extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   )),
               const SizedBox(
-                width: 160.0,
+                width: 180.0,
               ),
               const Icon(
                 Icons.arrow_forward_ios,
@@ -76,7 +76,7 @@ class ProfileHomeOptions extends StatelessWidget {
               const SizedBox(
                 width: 20.0,
               ),
-              Text('Payment Info',
+              Text('Account Info',
                   style: GoogleFonts.poppins(
                     textStyle: const TextStyle(
                         color:  Color.fromRGBO(30, 73, 57, 1),

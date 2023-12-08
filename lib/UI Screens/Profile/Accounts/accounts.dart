@@ -1,6 +1,9 @@
+import 'package:credit_app/UI%20Screens/Profile/Accounts/widgets/momo_form.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'widgets/bank_form.dart';
 
 class PaymentMode extends StatelessWidget {
   const PaymentMode({super.key});
@@ -43,7 +46,7 @@ class PaymentMode extends StatelessWidget {
                 ),
                 const Gap(80),
                 Text(
-                  'Payment Info',
+                  'Account Info',
                   style: GoogleFonts.poppins(
                     textStyle: const TextStyle(
                         color: Colors.black54,
@@ -61,7 +64,7 @@ class PaymentMode extends StatelessWidget {
                 width: 30.0,
               ),
               Text(
-                'My Payment Details',
+                'My Account Details',
                 style: GoogleFonts.poppins(
                   textStyle: const TextStyle(
                       color: Colors.black87,
@@ -184,11 +187,13 @@ class PaymentMode extends StatelessWidget {
                     )),
               ),
             ),
-            const Gap (250),
+            const Gap(250),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
               child: GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  _bottomsheet(context);
+                },
                 child: Container(
                     height: 94.0,
                     decoration: BoxDecoration(
@@ -205,35 +210,35 @@ class PaymentMode extends StatelessWidget {
                         const SizedBox(
                           height: 25.0,
                         ),
-                        Row(
-                          children: [
-                            const SizedBox(width: 15.0),
-                            Image.asset(
-                              'assets/images/vector.png',
-                              height: 40.0,
-                              width: 30.0,
-                            ),
-                            const SizedBox(
-                              width: 15.0,
-                            ),
-                            Text(
-                              'Add Payment Account',
-                              style: GoogleFonts.poppins(
-                                textStyle: const TextStyle(
-                                    color: Colors.black54,
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.w700),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Image.asset(
+                                'assets/images/vector.png',
+                                height: 40.0,
+                                width: 30.0,
                               ),
-                            ),
-                            const SizedBox(
-                              width: 90.0,
-                            ),
-                            const Icon(
-                              Icons.arrow_forward_ios,
-                              size: 16.0,
-                              color: Colors.black54,
-                            )
-                          ],
+                              Padding(
+                                padding: const EdgeInsets.only(right: 150.0),
+                                child: Text(
+                                  'Add Account',
+                                  style: GoogleFonts.poppins(
+                                    textStyle: const TextStyle(
+                                        color: Colors.black54,
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.w700),
+                                  ),
+                                ),
+                              ),
+                              const Icon(
+                                Icons.arrow_forward_ios,
+                                size: 16.0,
+                                color: Colors.black54,
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     )),
@@ -242,4 +247,148 @@ class PaymentMode extends StatelessWidget {
           ]),
         ));
   }
+}
+
+void _bottomsheet(BuildContext context) {
+  showModalBottomSheet(
+    showDragHandle: true,
+    backgroundColor: Colors.white,
+    useSafeArea: true,
+    anchorPoint: const Offset(0.0, 5.0),
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(50)),
+    isScrollControlled: true,
+    context: context,
+    builder: (context) => Container(
+      height: 550.0,
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        //border: Border.all(color: Colors.black12),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(50.0),
+          topRight: Radius.circular(50.0),
+        ),
+      ),
+      child: Column(
+        children: [
+          const Gap(40),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const BankForm()));
+              },
+              child: Container(
+                  height: 94.0,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: const [
+                        BoxShadow(
+                            blurRadius: 2,
+                            color: Colors.black26,
+                            spreadRadius: 1)
+                      ]),
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset(
+                              'assets/images/vector.png',
+                              height: 40.0,
+                              width: 30.0,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 90.0),
+                              child: Text(
+                                'Add Bank Account',
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                      color: Colors.black54,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              ),
+                            ),
+                            const Icon(
+                              Icons.arrow_forward_ios,
+                              size: 16.0,
+                              color: Colors.black54,
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  )),
+            ),
+          ),
+          const Gap(30),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const MomoForm()));
+              },
+              child: Container(
+                  height: 94.0,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: const [
+                        BoxShadow(
+                            blurRadius: 2,
+                            color: Colors.black26,
+                            spreadRadius: 1)
+                      ]),
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 25.0,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Image.asset(
+                              'assets/images/telecom-mobile-money-12.png',
+                              height: 40.0,
+                              width: 30.0,
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 50.0),
+                              child: Text(
+                                'Add Mobile Money wallet',
+                                style: GoogleFonts.poppins(
+                                  textStyle: const TextStyle(
+                                      color: Colors.black54,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w700),
+                                ),
+                              ),
+                            ),
+                            const Icon(
+                              Icons.arrow_forward_ios,
+                              size: 16.0,
+                              color: Colors.black54,
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  )),
+            ),
+          ),
+        ],
+      ),
+    ),
+  );
 }
