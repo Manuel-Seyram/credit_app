@@ -27,8 +27,6 @@ class RegisterController extends GetxController {
       var response = await dio.post(Endpoints.baseURL + Endpoints.registerUser,
           options: Options(headers: {
             'Content-Type': 'application/json',
-            'Cookie':
-                'jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDE4OTAzNzcsImlzcyI6IjIifQ.Ubjf0bPJodZcEmrMrvRtsfcsI2uj4351fNnVGVMJvBM'
           }),
           data: {
             'first_name': fullnameController.text,

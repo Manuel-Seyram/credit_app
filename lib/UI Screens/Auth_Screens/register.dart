@@ -52,7 +52,7 @@ class Register extends StatelessWidget {
               ),
             ),
             const Gap(20),
-            RegisterFormfield(),
+            const RegisterFormfield(),
             const Gap(30),
             SizedBox(
               width: MediaQuery.of(context).size.width,
