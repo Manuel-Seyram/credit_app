@@ -7,4 +7,5 @@ abstract class Endpoints {
   static const String registerUser = "/register";
   static const String loginUser = "/login";
   static const String getuser = "/user";
+  static const String updateUser = '/users';
 }

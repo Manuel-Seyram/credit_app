@@ -13,6 +13,7 @@ import '../../API/app_exceptions.dart';
 import '../../API/endpoints.dart';
 import '../../UI Screens/home.dart';
 import '../user controllers/get_xactscore_users.dart';
+import '../user controllers/update_user_controller.dart';
 
 class LoginController extends GetxController {
   var dio = Dio();
@@ -56,6 +57,9 @@ class LoginController extends GetxController {
 
         // Pass cookies to XactscoreUsers instance
         XactscoreUsers().setCookies(await cookie.loadForRequest(uri));
+
+        // Pass cookies to UpdateUser instance
+        UpdateUser().setCookies(await cookie.loadForRequest(uri));
 
         // Clear controllers and navigate to Home screen
         emailController.clear();

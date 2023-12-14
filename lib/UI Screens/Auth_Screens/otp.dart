@@ -1,10 +1,11 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unused_element
 
-import 'package:credit_app/UI%20Screens/home.dart';
+import 'package:credit_app/UI%20Screens/Auth_Screens/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -176,11 +177,7 @@ class _OtpState extends State<Otp> {
                 const Gap(200),
                 MaterialButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: ((context) => const Home())));
-                      _showMyDialog(context);
+                      Get.offAll(const Login());
                     },
                     color: const Color.fromRGBO(30, 73, 57, 1),
                     height: 40.0,
